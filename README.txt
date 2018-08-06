@@ -1,2 +1,2 @@
 zmiana 1
-dodanie galezi
+dodanie galezi fix-1
