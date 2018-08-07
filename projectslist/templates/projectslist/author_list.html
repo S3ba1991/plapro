@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+
+<ul>
+{% for author in object_list %}
+    <li><a href="{% url 'projectslist:author-detail' author.id %}">{{author.firstName}} {{ author.lastName }}</a> </li>
+{%endfor%}
+</ul>
+{% endblock %}

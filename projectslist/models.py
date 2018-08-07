@@ -8,15 +8,31 @@ class Author(models.Model):
     firstName = models.CharField(max_length=15)
     lastName = models.CharField(max_length=15)
 
+    def __str__(self):
+        return "{fN} {lN}".format(fN=self.firstName, lN=self.lastName)
 
-class DesignerList(models.Model):
-    list = models.CharField(max_length=15)
+
+class Designer(models.Model):
+    firstName = models.CharField(max_length=15)
+    lastName = models.CharField(max_length=15)
+
+    def __str__(self):
+        return "{fN} {lN}".format(fN=self.firstName, lN=self.lastName)
 
 
 class Project(models.Model):
     author = models.ForeignKey(Author)
-    designerList = models.ForeignKey(DesignerList)
+    designerList = models.ManyToManyField(Designer)
     title = models.CharField(max_length=100)
     startDate = models.DateField()
     endDate = models.DateField()
-    status = models.CharField(max_length=1)
+    statuses = (
+        ('N', 'New'),
+        ('R', 'In implementation'),
+        ('D', 'Done'),
+    )
+    status = models.CharField(max_length=1, choices=statuses, default='N')
+    content = models.CharField(max_length=5000, default='')
+
+    def __str__(self):
+        return self.title

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+
+<div>  <a href="{% url 'projectslist:author-list' %}">  Powrót do listy</a></div>
+
+Profil autora: {{ object.firstName }} {{object.lastName}}
+
+{% endblock %} 

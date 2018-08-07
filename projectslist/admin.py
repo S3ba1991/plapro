@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from .models import Author, DesignerList, Project
+from .models import Author, Designer, Project
 
 # Register your models here.
 
-admin.site.register([Author, DesignerList, Project])
+admin.site.register([Author, Designer, Project])
